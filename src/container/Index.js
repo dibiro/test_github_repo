@@ -40,7 +40,7 @@ class Index extends React.Component {
     login(username, password, history.push)
   }
   render(){
-    const {history, isAuth, user} = this.props
+    const {history, isAuth, user, error} = this.props
     if (isAuth && user){
       history.push("/home")
     }
@@ -78,6 +78,7 @@ class Index extends React.Component {
                     title=" login with github"
                   />
                 </View>
+                <Text>{error}</Text>
               </View>
             </View>
           </ScrollView>
@@ -132,4 +133,5 @@ const styles = StyleSheet.create({
 export default withRouter(connect((state) => ({
   isAuth: state.auth.isAuth,
   user: state.auth.user,
+  error: state.auth.error,
 }), { login })(Index))

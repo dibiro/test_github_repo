@@ -27,7 +27,8 @@ export default function reducer (state = initialStates, action) {
       return {
         ...state,
         isLoading: false,
-        isAuth: true
+        isAuth: true,
+        error: false
       }
       break
     case GET_USER:
