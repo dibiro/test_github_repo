@@ -27,6 +27,7 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 
 // redux
 import {connect} from 'react-redux'
+import {logout} from "../redux/actions/authActions"
 import {get_repos, set_repo, get_commints} from "../redux/actions/repoActions"
 
 // navigation
@@ -49,7 +50,6 @@ class Home extends React.Component {
     get_repos(repo)
   }
   selectRep(rep){
-    console.log(rep)
     const {set_repo, history, get_commints} = this.props
     set_repo(rep)
     get_commints(rep)
@@ -59,22 +59,31 @@ class Home extends React.Component {
     this.props.get_repos("facebook/react-native")
   }
   render(){
-    const {repos} = this.props
+    const {repos, history, isAuth, user, logout} = this.props
+    if (!isAuth && !user){
+      history.push("/")
+    }
     return (
       <Fragment>
         <StatusBar barStyle="dark-content" />
         <Header
           leftComponent={<Icon
             name="github"
-            size={15}
+            size={25}
             color="white"
           />}
           centerComponent={{ text: 'GitHub Viewer', style: { color: '#fff' } }}
-          rightComponent={<Icon
-            name="sign-out"
-            size={15}
-            color="white"
-          />}
+          rightComponent={
+            <TouchableOpacity
+              onPress={logout}
+            >
+              <Icon
+                name="sign-out"
+                size={25}
+                color="white"
+              />
+            </TouchableOpacity>
+          }
         />
         <SafeAreaView>
           <ScrollView
@@ -171,4 +180,4 @@ export default withRouter(connect((state) => ({
   isAuth: state.auth.isAuth,
   user: state.auth.user,
   repos: state.repo.repos,
-}), { get_repos, set_repo, get_commints })(Home))
+}), { get_repos, set_repo, get_commints, logout })(Home))

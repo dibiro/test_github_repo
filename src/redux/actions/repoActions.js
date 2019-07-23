@@ -46,7 +46,11 @@ export function get_commints (repo) {
   const userFull = storeNow.auth.user
   const { user, password } = userFull
   return (dispatch) => {
-    fetch(repo.commits_url.split("{")[0], {
+    dispatch({
+      type: GET_COMMINTS,
+      comments: []
+    })
+    fetch(repo.commits_url.split("/commits")[0]+"/commits", {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -56,6 +60,7 @@ export function get_commints (repo) {
     })
     .then((response) => response.json())
     .then((responseJson) => {
+      console.log(responseJson)
       dispatch({
         type: GET_COMMINTS,
         comments: responseJson

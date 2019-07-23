@@ -12,7 +12,6 @@ const appReducer = combineReducers({
 
 const rootReducer = (state, action) => {
     if (action.type === LOGOUT) {
-        window.localStorage.clear()
         state = undefined;
     }
     return appReducer(state, action);

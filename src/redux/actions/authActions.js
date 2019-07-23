@@ -9,6 +9,12 @@ import app from '../../../app.json'
 
 // phone 
 
+export function logout () {
+  return{
+    type: LOGOUT
+  }
+}
+
 export function login (user, password, callBack) {
   return (dispatch) => {
     dispatch({
@@ -50,3 +56,5 @@ export function login (user, password, callBack) {
     });
   }
 }
+
+
