@@ -1,4 +1,5 @@
 {
   "name": "test_github_repo",
-  "displayName": "test_github_repo"
+  "displayName": "test_github_repo",
+  "server":"https://api.github.com/"
 }
