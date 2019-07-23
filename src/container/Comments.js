@@ -86,11 +86,11 @@ class Comments extends React.Component {
                   <View>
                     <ListItem
                       leftAvatar={{
-                          title: comment.author ? comment.author.login[0] : ( comment.committer ? comment.committer.login[0] : ''),
+                          title: comment.author ? comment.author.login[0] : ( comment.committer ? comment.committer.login[0] : comment.commit.author.name[0]),
                           source: { uri: comment.author ? comment.author.avatar_url : ( comment.committer ? comment.committer.avatar_url : '') },
                       }}
                       key={comment.id}
-                      title={comment.author ? comment.author.login : ( comment.committer ? comment.committer.login : '')}
+                      title={comment.author ? comment.author.login : ( comment.committer ? comment.committer.login : comment.commit.author.name)}
                       subtitle={comment.commit.message}
                     />
                   </View>
