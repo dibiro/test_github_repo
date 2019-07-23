@@ -18,6 +18,8 @@ import { persistor, store } from './redux/store'
 // Componest Containers
 
 import Index from './container/Index'
+import Home from './container/Home'
+import Comments from './container/Comments'
 
 
 export default class App extends Component {
@@ -27,6 +29,8 @@ export default class App extends Component {
         <PersistGate persistor={persistor}>
           <NativeRouter>
             <Route exact path="/" component={Index} />
+            <Route exact path="/home" component={Home} />
+            <Route exact path="/comments" component={Comments} />
           </NativeRouter>
         </PersistGate>
       </Provider>

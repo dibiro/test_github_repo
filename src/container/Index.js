@@ -6,7 +6,7 @@
  * @flow
  */
 
-import React, {Fragment} from 'react';
+import React, {Fragment} from 'react'
 import {
   SafeAreaView,
   StyleSheet,
@@ -14,45 +14,85 @@ import {
   View,
   Text,
   StatusBar,
-} from 'react-native';
+} from 'react-native'
 
 import {
   Colors,
-} from 'react-native/Libraries/NewAppScreen';
-import { Button } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/FontAwesome';
+} from 'react-native/Libraries/NewAppScreen'
+import { Button, Input } from 'react-native-elements'
+import Icon from 'react-native-vector-icons/FontAwesome'
+import {connect} from 'react-redux'
+import {login} from "../redux/actions/authActions"
+import { withRouter } from 'react-router'
 
-const App = () => {
-  return (
-    <Fragment>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Button
-                icon={
-                  <Icon
-                    name="github"
-                    size={15}
-                    color="white"
+class Index extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      tooltipOpen: false,
+      report: {},
+    }
+    this.handleLogin = this.handleLogin.bind(this)
+  }
+  handleLogin(){
+    const {login, history} = this.props
+    const {username, password} = this.state
+    login(username, password, history.push)
+  }
+  render(){
+    const {history, isAuth, user} = this.props
+    if (isAuth && user){
+      history.push("/home")
+    }
+    return (
+      <Fragment>
+        <StatusBar barStyle="dark-content" />
+        <SafeAreaView>
+          <ScrollView
+            contentInsetAdjustmentBehavior="automatic"
+            style={styles.scrollView}>
+            <View style={styles.body}>
+              <View style={styles.sectionContainer}>
+                <Input
+                  placeholder='Username'
+                  leftIcon={{ type: 'font-awesome', name: 'user' }}
+                  onChangeText={(username) => this.setState({username})}
                   />
-                }
-                title=" login with github"
-              />
+                <Input
+                  onChangeText={(password) => this.setState({password})}
+                  placeholder='Password'
+                  secureTextEntry
+                  leftIcon={{ type: 'font-awesome', name: 'lock' }}
+                />
+                <View style={styles.button}>
+                  <Button
+                    style={styles.button}
+                    onPress={this.handleLogin}
+                    icon={
+                      <Icon
+                        name="github"
+                        size={15}
+                        color="white"
+                      />
+                    }
+                    title=" login with github"
+                  />
+                </View>
+              </View>
             </View>
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </Fragment>
-  );
-};
+          </ScrollView>
+        </SafeAreaView>
+      </Fragment>
+    )
+  }
+}
 
 const styles = StyleSheet.create({
   scrollView: {
     backgroundColor: Colors.lighter,
+  },
+  button: {
+    marginTop: 10,
   },
   engine: {
     position: 'absolute',
@@ -87,6 +127,9 @@ const styles = StyleSheet.create({
     paddingRight: 12,
     textAlign: 'right',
   },
-});
+})
 
-export default App;
+export default withRouter(connect((state) => ({
+  isAuth: state.auth.isAuth,
+  user: state.auth.user,
+}), { login })(Index))

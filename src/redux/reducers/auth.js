@@ -12,6 +12,7 @@ const initialStates = {
   id: false,
   user: false,
   request: false,
+  error: false
 }
 
 export default function reducer (state = initialStates, action) {
@@ -41,7 +42,8 @@ export default function reducer (state = initialStates, action) {
       return {
         ...state,
         user: false,
-        isLoading: false
+        isLoading: false,
+        error: action.error
       }
       break
     case LOGOUT:

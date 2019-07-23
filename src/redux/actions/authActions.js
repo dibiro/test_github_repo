@@ -14,7 +14,7 @@ export function login (user, password, callBack) {
     dispatch({
       type: LOGIN
     })
-    fetch(app.server + "https://api.github.com/user", {
+    fetch(app.server + "/user", {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -24,22 +24,29 @@ export function login (user, password, callBack) {
     })
     .then((response) => response.json())
     .then((responseJson) => {
-      dispatch({
-        type: GET_USER,
-        user: responseJson
-      })
-      dispatch({
-        type: LOGIN_SUCCESS
-      })
-      if(callBack){
-        callBack("/home")
+      if ( responseJson["message"] === "Bad credentials"){
+        dispatch({
+          type: LOGIN_FAIL,
+          error: responseJson["message"]
+        })
+      } else {
+        dispatch({
+          type: GET_USER,
+          user: {...responseJson, user, password}
+        })
+        dispatch({
+          type: LOGIN_SUCCESS
+        })
+        if(callBack){
+          callBack("/home")
+        }
       }
     })
     .catch((error) => {
       console.error(error);
+      dispatch({
+        type: LOGIN_FAIL
+      })
     });
-    dispatch({
-      type: LOGIN_FAIL
-    })
   }
 }
