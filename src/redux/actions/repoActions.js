@@ -5,6 +5,7 @@ import {
 } from '../reducers/repo'
 import app from '../../../app.json'
 import { store } from '../store'
+import base64 from 'react-native-base64'
 
 // phone 
 
@@ -25,7 +26,7 @@ export function get_repos (searchText) {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        "Authorization": "Basic "+ btoa(user + ":" + password),
+        "Authorization": "Basic "+ base64.encode(user + ":" + password),
       }
     })
     .then((response) => response.json())
@@ -55,7 +56,7 @@ export function get_commints (repo) {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        "Authorization": "Basic "+ btoa(user + ":" + password),
+        "Authorization": "Basic "+ base64.encode(user + ":" + password),
       }
     })
     .then((response) => response.json())

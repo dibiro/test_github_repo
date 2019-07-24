@@ -5211,6 +5211,11 @@ react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
   integrity sha512-aUk3bHfZ2bRSVFFbbeVS4i+lNPZr3/WM5jT2J5omUVV1zzcs1nAaf3l51ctA5FFvCRbhrH0bdAsRRQddFJZPtA==
 
+react-native-base64@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/react-native-base64/-/react-native-base64-0.0.2.tgz#c28463c2c6779ac3ec5fdd12979ebc8c5f9b410a"
+  integrity sha512-Fu/J1a2y0X22EJDWqJR2oEa1fpP4gTFjYxk8ElJdt1Yak3HOXmFJ7EohLVHU2DaQkgmKfw8qb7u/48gpzveRbg==
+
 react-native-elements@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/react-native-elements/-/react-native-elements-1.1.0.tgz#f99bcda4459a886f3ab4591c684c099d37aedf2b"
