@@ -27,6 +27,7 @@
 
 ```sh
 npm install
+react-native link
 ```
 
 ## Usage
