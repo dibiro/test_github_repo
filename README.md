@@ -16,7 +16,6 @@
 
 > Small project that allows you to start a section on github, search for a repository and see commits.
 
-
 ### 🏠 [Homepage](https://github.com/dibiro/test_github_repo)
 
 ## Prerequisites
@@ -41,6 +40,11 @@ or
 ```sh
 npm run ios
 ```
+
+![alt text](https://github.com/dibiro/test_github_repo/blob/master/img/login.png?raw=true)
+![alt text](https://github.com/dibiro/test_github_repo/blob/master/img/repo.png?raw=true)
+![alt text](https://github.com/dibiro/test_github_repo/blob/master/img/commit2.png?raw=true)
+
 ## Run tests
 
 ```sh
