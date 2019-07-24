@@ -14,8 +14,8 @@
   </a>
 </p>
 
-> CLI that generates beautiful README.md files.
-Small project that allows you to start a section on github, search for a repository and see your
+> Small project that allows you to start a section on github, search for a repository and see commits.
+
 
 ### 🏠 [Homepage](https://github.com/dibiro/test_github_repo)
 
