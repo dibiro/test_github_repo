@@ -15,8 +15,9 @@
 </p>
 
 > CLI that generates beautiful README.md files.
+Small project that allows you to start a section on github, search for a repository and see your
 
-### 🏠 [Homepage](Small project that allows you to start a section on github, search for a repository and see yourhttps://github.com/dibiro/test_github_repo)
+### 🏠 [Homepage](https://github.com/dibiro/test_github_repo)
 
 ## Prerequisites
 
@@ -49,7 +50,7 @@ npm run test
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/kefranabg/readme-md-generator/issues).
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/dibiro/test_github_repo/issues).
 
 ## Show your support
 
@@ -58,7 +59,4 @@ Give a ⭐️ if this project helped you!
 ## 📝 License
 
 Copyright © 2019 [Leopoldo Montesinos](https://github.com/Dibiro).<br />
-This project is [MIT](https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE) licensed.
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+This project is [MIT](https://github.com/dibiro/test_github_repo/LICENSE) licensed.
