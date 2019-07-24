@@ -36,6 +36,11 @@ npm install
 npm run android
 ```
 
+or 
+
+```sh
+npm run ios
+```
 ## Run tests
 
 ```sh
